@@ -23,19 +23,19 @@ function readLine() {
 }
 
 /*
- * Complete the 'aVeryBigSum' function below.
+ * Complete the 'simpleArraySum' function below.
  *
- * The function is expected to return a LONG_INTEGER.
- * The function accepts LONG_INTEGER_ARRAY ar as parameter.
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER_ARRAY ar as parameter.
  */
 
-function aVeryBigSum(ar) {
+function simpleArraySum(ar) {
     // Write your code here
-let soma = 0n;
-for(let num of ar){
-    soma += BigInt(num);
-}
-return soma;
+   let soma = 0;
+   for(let i = 0; i< ar.length; i++){
+    soma += ar[i];
+   }
+   return soma
 }
 
 function main() {
@@ -45,7 +45,7 @@ function main() {
 
     const ar = readLine().replace(/\s+$/g, '').split(' ').map(arTemp => parseInt(arTemp, 10));
 
-    const result = aVeryBigSum(ar);
+    const result = simpleArraySum(ar);
 
     ws.write(result + '\n');
 

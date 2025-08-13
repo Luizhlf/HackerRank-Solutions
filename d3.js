@@ -23,40 +23,31 @@ function readLine() {
 }
 
 /*
- * Complete the 'compareTriplets' function below.
+ * Complete the 'aVeryBigSum' function below.
  *
- * The function is expected to return an INTEGER_ARRAY.
- * The function accepts following parameters:
- *  1. INTEGER_ARRAY a
- *  2. INTEGER_ARRAY b
+ * The function is expected to return a LONG_INTEGER.
+ * The function accepts LONG_INTEGER_ARRAY ar as parameter.
  */
 
-function compareTriplets(a, b) {
-    
-    let pontosA = 0;
-    let pontosB = 0;
-    
-for(let i = 0; i < a.length; i++){
-        if(a[i]>b[i]){
-            pontosA++;
-         }
-         else if(b[i]>a[i]){
-            pontosB++;
-         }
+function aVeryBigSum(ar) {
+    // Write your code here
+let soma = 0n;
+for(let num of ar){
+    soma += BigInt(num);
 }
-    return [pontosA, pontosB];
+return soma;
 }
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
+    const arCount = parseInt(readLine().trim(), 10);
 
-    const b = readLine().replace(/\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));
+    const ar = readLine().replace(/\s+$/g, '').split(' ').map(arTemp => parseInt(arTemp, 10));
 
-    const result = compareTriplets(a, b);
+    const result = aVeryBigSum(ar);
 
-    ws.write(result.join(' ') + '\n');
+    ws.write(result + '\n');
 
     ws.end();
 }

@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require('fs');
+
 process.stdin.resume();
 process.stdin.setEncoding('utf-8');
 
@@ -21,30 +23,40 @@ function readLine() {
 }
 
 /*
- * Complete the 'miniMaxSum' function below.
+ * Complete the 'compareTriplets' function below.
  *
- * The function accepts INTEGER_ARRAY arr as parameter.
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts following parameters:
+ *  1. INTEGER_ARRAY a
+ *  2. INTEGER_ARRAY b
  */
 
-function miniMaxSum(arr) {
-    // Write your code here
-let total = 0
-let min = Math.min(...arr);
-let max = Math.max(...arr);
-
-for(let i = 0; i < arr.length ; i++){
-    total += arr[i]
+function compareTriplets(a, b) {
+    
+    let pontosA = 0;
+    let pontosB = 0;
+    
+for(let i = 0; i < a.length; i++){
+        if(a[i]>b[i]){
+            pontosA++;
+         }
+         else if(b[i]>a[i]){
+            pontosB++;
+         }
 }
-
-let minsoma = total - max;
-let maxsoma = total - min; 
-
-console.log(minsoma, maxsoma)
+    return [pontosA, pontosB];
 }
 
 function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
+    const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
 
-    miniMaxSum(arr);
+    const b = readLine().replace(/\s+$/g, '').split(' ').map(bTemp => parseInt(bTemp, 10));
+
+    const result = compareTriplets(a, b);
+
+    ws.write(result.join(' ') + '\n');
+
+    ws.end();
 }

@@ -1,53 +1,33 @@
-'use strict';
-
-const fs = require('fs');
-
 process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+process.stdin.setEncoding('ascii');
 
-let inputString = '';
-let currentLine = 0;
+var input_stdin = "";
+var input_stdin_array = "";
+var input_currentline = 0;
 
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
+process.stdin.on('data', function (data) {
+    input_stdin += data;
 });
 
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
+process.stdin.on('end', function () {
+    input_stdin_array = input_stdin.split("\n");
+    main();    
 });
 
 function readLine() {
-    return inputString[currentLine++];
+    return input_stdin_array[input_currentline++];
 }
 
-/*
- * Complete the 'simpleArraySum' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY ar as parameter.
- */
+function solveMeFirst(a, b) {
+  // Hint: Type return a+b below   
+  return (a + b);
+} 
 
-function simpleArraySum(ar) {
-    // Write your code here
-   let soma = 0;
-   for(let i = 0; i< ar.length; i++){
-    soma += ar[i];
-   }
-   return soma
-}
 
 function main() {
-    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+    var a = parseInt(readLine());
+    var b = parseInt(readLine());;
 
-    const arCount = parseInt(readLine().trim(), 10);
-
-    const ar = readLine().replace(/\s+$/g, '').split(' ').map(arTemp => parseInt(arTemp, 10));
-
-    const result = simpleArraySum(ar);
-
-    ws.write(result + '\n');
-
-    ws.end();
+    var res = solveMeFirst(a, b);
+    console.log(res);
 }
