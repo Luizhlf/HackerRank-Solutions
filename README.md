@@ -1,3 +1,3 @@
 # HackerRank-Solutions
-Repositório para soluções de desafios
+Repositório de lista de desafios
 
