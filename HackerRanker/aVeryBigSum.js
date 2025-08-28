@@ -35,7 +35,7 @@ let soma = 0n;
 for(let num of ar){
     soma += BigInt(num);
 }
-return soma;
+return soma
 }
 
 function main() {
