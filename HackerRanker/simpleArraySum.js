@@ -35,7 +35,7 @@ function simpleArraySum(ar) {
    for(let i = 0; i< ar.length; i++){
     soma += ar[i];
    }
-   return soma;
+   return soma
 }
 
 function main() {
