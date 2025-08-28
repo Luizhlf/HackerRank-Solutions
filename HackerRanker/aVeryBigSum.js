@@ -31,9 +31,9 @@ function readLine() {
 
 function aVeryBigSum(ar) {
     // Write your code here
-let soma = 0n;
-for(let num of ar){
-    soma += BigInt(num);
+let soma = 0;
+for(let i = 0; i < ar.length; i++){
+    soma += ar[i];
 }
 return soma;
 }
